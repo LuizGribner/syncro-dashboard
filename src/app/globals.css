@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  --font-geist: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-geist);
+  background-color: #f0f2f8;
+  color: #1a1f36;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c8cfe0; border-radius: 3px; }
+
+/* Status badge colors */
+.badge-active    { @apply bg-emerald-100 text-emerald-700; }
+.badge-paused    { @apply bg-amber-100 text-amber-700; }
+.badge-completed { @apply bg-blue-100 text-blue-700; }
+.badge-cancelled { @apply bg-red-100 text-red-700; }
+.badge-pending   { @apply bg-amber-100 text-amber-700; }
+.badge-paid      { @apply bg-emerald-100 text-emerald-700; }
+.badge-inactive  { @apply bg-gray-100 text-gray-500; }
