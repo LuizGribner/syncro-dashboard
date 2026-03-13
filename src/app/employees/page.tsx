@@ -20,7 +20,7 @@ export default function EmployeesPage() {
     setLoading(true)
     const [{ data: emps }, { data: pe }, { data: pays }] = await Promise.all([
       supabase.from('employees').select('*').order('name'),
-      supabase.from('project_employees').select('employee_id, projects(id, title, status)'),
+      supabase.from('project_employees').select('employee_id, projects(id, title, status)') as any as any,
       supabase.from('payments').select('employee_id, amount').eq('status', 'paid'),
     ])
 
@@ -28,7 +28,7 @@ export default function EmployeesPage() {
 
     // Group projects by employee
     const projMap: Record<string, any[]> = {}
-    pe?.forEach(row => {
+    pe?.forEach((row: any) => {
       if (!projMap[row.employee_id]) projMap[row.employee_id] = []
       projMap[row.employee_id].push(row.projects)
     })
@@ -36,7 +36,7 @@ export default function EmployeesPage() {
 
     // Sum payments per employee
     const payMap: Record<string, number> = {}
-    pays?.forEach(row => {
+    pays?.forEach((row: any) => {
       payMap[row.employee_id] = (payMap[row.employee_id] ?? 0) + row.amount
     })
     setPayments(payMap)
@@ -47,7 +47,7 @@ export default function EmployeesPage() {
 
   async function toggleStatus(emp: any) {
     const next = emp.status === 'active' ? 'inactive' : 'active'
-    await supabase.from('employees').update({ status: next }).eq('id', emp.id)
+    await supabase.from('employees').update({ status: next } as any).eq('id', emp.id)
     load()
   }
 
