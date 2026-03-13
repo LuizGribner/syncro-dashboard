@@ -48,7 +48,7 @@ export default function PaymentFormModal({ employee, onClose }: Props) {
       status: form.status,
     }
     console.log('Inserting payment:', payload)
-    const { data, error: err } = await supabase.from('payments').insert(payload).select()
+    const { data, error: err } = await supabase.from('payments').insert(payload as any).select()
     console.log('Result:', data, err)
     if (err) {
       setError(err.message)
