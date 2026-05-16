@@ -20,8 +20,8 @@ Dashboard interno para gestão de projetos, equipe e financeiro da Syncro Soluti
 2. Vá em **SQL Editor** e cole o conteúdo de `supabase/schema.sql` e execute
 3. Em **Settings > API**, copie a **Project URL** e a **anon public key**
 4. Em **Authentication > Users**, crie dois usuários:
-   - Você: `luiz@syncrosolutions.com` + senha
-   - Gabi: `gabi@syncrosolutions.com` + senha
+   - Você: `test@test.com` + senha
+   - Gabi: `test2@test2.com` + senha
 
 ### 2. Projeto local
 
@@ -74,7 +74,7 @@ src/
 
 ## Funcionalidades
 
-- ✅ Login seguro (você + Gabi)
+- ✅ Login seguro (test + test2)
 - ✅ Dashboard com métricas em tempo real
 - ✅ Projetos: criar, editar, excluir, filtrar por status
 - ✅ Funcionário em múltiplos projetos (many-to-many)
